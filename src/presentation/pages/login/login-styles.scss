@@ -95,12 +95,13 @@ button {
       flex-direction: column;
       align-items: center;
 
-      .spinner {
-        margin: 20px 0 0 0;
+      .ellipsis {
+        color: $primaryLight;
+        font-size: 30px;
+        align-self: center;
       }
 
       .error {
-        margin: 30px 0 0 0;
         color: red;
         font-size: 16px;
         font-weight: 700;

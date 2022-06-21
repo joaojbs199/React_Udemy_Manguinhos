@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './login-styles.scss'
-import Spinner from '@/presentation/components/spinner/spinner'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEllipsis } from '@fortawesome/free-solid-svg-icons'
 
 const Login: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const Login: React.FC = () => {
         <button type="submit">Entrar</button>
         <span className={styles.link}>Criar conta</span>
         <div className={styles.errorWrap}>
-          <Spinner className={styles.spinner} />
+          <FontAwesomeIcon beatFade className={styles.ellipsis} icon={faEllipsis} />
           <span className={styles.error}>Erro</span>
         </div>
       </form>
