@@ -5,11 +5,11 @@ import styles from './errorWrap-styles.scss'
 import Context from '@/presentation/contexts/login-form/login-form-context'
 
 const ErrorWrap: React.FC = () => {
-  const { isLoading, errorMessage } = useContext(Context)
+  const { isLoading, mainError } = useContext(Context)
   return (
     <div data-testid='errorWrap' className={styles.errorWrap}>
       {isLoading && <FontAwesomeIcon beatFade className={styles.ellipsis} icon={faEllipsis} />}
-      { errorMessage && <span className={styles.error}>{errorMessage}</span>}
+      { mainError && <span className={styles.error}>{mainError}</span>}
     </div>
   )
 }

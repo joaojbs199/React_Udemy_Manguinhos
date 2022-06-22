@@ -23,8 +23,15 @@
       text-transform: uppercase;
     }
 
-    .submit {
+    .inputError {
+      font-size: 11px;
+      color: red;
+      margin-top: 3px;
+    }
 
+    .submit {
+      margin: 20px 0 0;
+      
       &:disabled {
         color: $disabledColor;
         background-color: $disabledBackground;
