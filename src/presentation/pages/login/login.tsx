@@ -12,6 +12,7 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
   const [state, setState] = useState({
     isLoading: false,
     email: '',
+    password: '',
     mainError: '',
     emailError: 'Campo obrigatório',
     passwordError: 'Campo obrigatório'
@@ -20,6 +21,10 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
   useEffect(() => {
     validation.validate({ email: state.email })
   }, [state.email])
+
+  useEffect(() => {
+    validation.validate({ password: state.password })
+  }, [state.password])
 
   const handleChange = (event: React.FocusEvent<HTMLInputElement>): void => {
     setState({
@@ -49,6 +54,7 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
             type='password'
             name='password'
             placeholder='Digite sua senha'
+            onChange={handleChange}
           />
           {state.passwordError && <span data-testid='passwordError' className={styles.inputError}>{state.passwordError}</span>}
           <button className={styles.submit} data-testid='submit' disabled type="submit">Entrar</button>
