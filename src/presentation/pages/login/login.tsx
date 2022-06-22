@@ -1,8 +1,6 @@
 import React from 'react'
 import styles from './login-styles.scss'
-import Header from '@/presentation/components/login-header/login-header'
-import Footer from '@/presentation/components/footer/footer'
-import ErrorWrap from '@/presentation/components/errorWrap/errorWrap'
+import { Header, ErrorWrap, Footer } from '@/presentation/components'
 
 const Login: React.FC = () => {
   return (
