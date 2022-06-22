@@ -15,19 +15,16 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
     password: '',
     mainError: '',
     emailError: '',
-    passwordError: 'Campo obrigatório'
+    passwordError: ''
   })
 
   useEffect(() => {
     setState({
       ...state,
-      emailError: validation.validate('email', state.email)
+      emailError: validation.validate('email', state.email),
+      passwordError: validation.validate('password', state.password)
     })
-  }, [state.email])
-
-  useEffect(() => {
-    validation.validate('password', state.password)
-  }, [state.password])
+  }, [state.email, state.password])
 
   const handleChange = (event: React.FocusEvent<HTMLInputElement>): void => {
     setState({
@@ -50,7 +47,7 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
             placeholder='Digite seu email'
             onChange={handleChange}
           />
-          {state.emailError && <span data-testid='emailError' className={styles.inputError}>{state.emailError}</span>}
+          <span data-testid='emailError' className={styles.inputError}>{state.emailError}</span>
           <input
             data-testid='password'
             autoComplete='off'
@@ -59,7 +56,7 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
             placeholder='Digite sua senha'
             onChange={handleChange}
           />
-          {state.passwordError && <span data-testid='passwordError' className={styles.inputError}>{state.passwordError}</span>}
+          <span data-testid='passwordError' className={styles.inputError}>{state.passwordError}</span>
           <button className={styles.submit} data-testid='submit' disabled type="submit">Entrar</button>
           <span className={styles.link}>Criar conta</span>
           <ErrorWrap />
