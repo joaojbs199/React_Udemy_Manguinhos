@@ -1,9 +1,8 @@
 import React from 'react'
 import styles from './login-styles.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEllipsis } from '@fortawesome/free-solid-svg-icons'
 import Header from '@/presentation/components/login-header/login-header'
 import Footer from '@/presentation/components/footer/footer'
+import ErrorWrap from '@/presentation/components/errorWrap/errorWrap'
 
 const Login: React.FC = () => {
   return (
@@ -15,10 +14,7 @@ const Login: React.FC = () => {
         <input type='password' name='password' placeholder='Digite sua senha' />
         <button type="submit">Entrar</button>
         <span className={styles.link}>Criar conta</span>
-        <div className={styles.errorWrap}>
-          <FontAwesomeIcon beatFade className={styles.ellipsis} icon={faEllipsis} />
-          <span className={styles.error}>Erro</span>
-        </div>
+        <ErrorWrap />
       </form>
 
       <Footer />
