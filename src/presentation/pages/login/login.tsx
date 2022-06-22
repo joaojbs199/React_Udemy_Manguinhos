@@ -8,8 +8,8 @@ const Login: React.FC = () => {
       <Header />
       <form className={styles.form}>
         <h2>Login</h2>
-        <input type='email' name='email' placeholder='Digite seu email' />
-        <input type='password' name='password' placeholder='Digite sua senha' />
+        <input autoComplete='off' type='email' name='email' placeholder='Digite seu email' />
+        <input autoComplete='off' type='password' name='password' placeholder='Digite sua senha' />
         <button type="submit">Entrar</button>
         <span className={styles.link}>Criar conta</span>
         <ErrorWrap />
