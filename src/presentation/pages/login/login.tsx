@@ -57,7 +57,13 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
             onChange={handleChange}
           />
           <span data-testid='passwordError' className={styles.inputError}>{state.passwordError}</span>
-          <button className={styles.submit} data-testid='submit' disabled type="submit">Entrar</button>
+          <button
+            className={styles.submit}
+            data-testid='submit'
+            disabled={!!state.emailError || !!state.passwordError}
+            type="submit">
+              Entrar
+          </button>
           <span className={styles.link}>Criar conta</span>
           <ErrorWrap />
         </form>
