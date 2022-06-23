@@ -48,4 +48,13 @@ describe('Login component', () => {
     const passwordStatus = sut.getByTestId('passwordError')
     expect(passwordStatus.innerHTML).toBe(validationStub.errorMessage)
   })
+
+  test('Should show valit password state if Validation succeed', () => {
+    const { sut, validationStub } = makeSut()
+    validationStub.errorMessage = null
+    const passwordInput = sut.getByTestId('password')
+    fireEvent.input(passwordInput, { target: { value: faker.internet.password() } })
+    const passwordStatus = sut.getByTestId('passwordError')
+    expect(passwordStatus.innerHTML).toBe('')
+  })
 })
