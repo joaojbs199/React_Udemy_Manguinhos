@@ -26,10 +26,18 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
     })
   }, [state.email, state.password])
 
-  const handleChange = (event: React.FocusEvent<HTMLInputElement>): void => {
+  const handleInputChange = (event: React.FocusEvent<HTMLInputElement>): void => {
     setState({
       ...state,
       [event.target.name]: event.target.value
+    })
+  }
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault()
+    setState({
+      ...state,
+      isLoading: true
     })
   }
 
@@ -37,7 +45,7 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
     <div className={styles.login}>
       <Header />
       <Context.Provider value={{ state, setState }}>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <h2>Login</h2>
           <input
             data-testid='email'
@@ -45,7 +53,7 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
             type='email'
             name='email'
             placeholder='Digite seu email'
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
           <span data-testid='emailError' className={styles.inputError}>{state.emailError}</span>
           <input
@@ -54,7 +62,7 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
             type='password'
             name='password'
             placeholder='Digite sua senha'
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
           <span data-testid='passwordError' className={styles.inputError}>{state.passwordError}</span>
           <button
