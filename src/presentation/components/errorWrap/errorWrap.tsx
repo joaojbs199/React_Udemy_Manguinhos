@@ -10,7 +10,7 @@ const ErrorWrap: React.FC = () => {
   return (
     <div data-testid='errorWrap' className={styles.errorWrap}>
       {isLoading && <FontAwesomeIcon data-testid='loader' beatFade className={styles.loader} icon={faEllipsis} />}
-      { mainError && <span className={styles.error}>{mainError}</span>}
+      { mainError && <span data-testid='mainError' className={styles.error}>{mainError}</span>}
     </div>
   )
 }
