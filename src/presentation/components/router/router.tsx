@@ -1,17 +1,16 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Login } from '@/presentation/pages'
-import { AuthenticationSpy, ValidationStub } from '@/presentation/test'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-const Router: React.FC = () => {
-  const validationStub = new ValidationStub()
-  const authenticationSpy = new AuthenticationSpy()
+type Props = {
+  makeLogin: React.FC
+}
 
+const Router: React.FC<Props> = ({ makeLogin }: Props) => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/login' element={<Login validation={validationStub} authentication={authenticationSpy} />} />
-      </Routes>
+      <Switch>
+        <Route exact path='/login' component={makeLogin} />
+      </Switch>
     </BrowserRouter>
   )
 }

@@ -23,7 +23,7 @@ const makeSut = (params?: SutParams): SutTypes => {
   const authenticationSpy = new AuthenticationSpy()
   validationStub.errorMessage = params?.validationError
   const sut = render(
-    <Router location={history.location} navigator={history}>
+    <Router history={history}>
       <Login validation={validationStub} authentication={authenticationSpy} />
     </Router>
   )
@@ -175,7 +175,7 @@ describe('Login component', () => {
     const loginForm = sut.getByTestId('loginForm')
     await waitFor(() => loginForm)
     expect(localStorage.setItem).toHaveBeenCalledWith('accessToken', authenticationSpy.account.accessToken)
-    expect(history.index).toBe(0)
+    expect(history.length).toBe(1)
     expect(history.location.pathname).toBe('/')
   })
 
@@ -183,7 +183,7 @@ describe('Login component', () => {
     const { sut } = makeSut()
     const signup = sut.getByTestId('signup')
     fireEvent.click(signup)
-    expect(history.index).toBe(1)
+    expect(history.length).toBe(2)
     expect(history.location.pathname).toBe('/signup')
   })
 })
