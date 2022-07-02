@@ -12,4 +12,4 @@ node_js:
   - 12
 script:
   - eslint 'src/**'
-  - npm run teste:ci
+  - npm run test:coveralls
