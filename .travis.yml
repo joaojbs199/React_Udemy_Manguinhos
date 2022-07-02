@@ -1,0 +1,10 @@
+[
+  {
+    "node_js": "12",
+    "language": "node_js",
+    "script": [
+      "eslint 'src/**'",
+      "npm run test:ci"
+    ]
+  }
+]
