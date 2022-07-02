@@ -7,9 +7,9 @@ workflows:
       - node/test:
           version: '16.10'
           pkg-manager: npm
-          script:
-            - eslint 'src/**'
-            - npm run test:coveralls
 language: node_js
 node_js:
   - 12
+script:
+  - eslint 'src/**'
+  - npm run test:coveralls
